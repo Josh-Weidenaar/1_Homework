@@ -1,0 +1,7 @@
+FINANCIAL ANALYSIS
+-------------------------------------------------------------------------------------------------
+Months in dataset: 86
+Total profit/loss: $38382578
+Average monthly change in profit/loss: $2315.1176470588234
+In Feb-2012 the firm made $1926159.0 dollars, the greatest increase in profits in this series.
+In Sep-2013 the firm lost $2196167.0 dollars, the greatest decrease in profits in this series.

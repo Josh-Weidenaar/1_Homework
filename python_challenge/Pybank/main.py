@@ -60,7 +60,7 @@ with open(csv_path) as csvfile:
     print(f"In {prolo_year_list[index_change_Gain]} the firm made ${abs(prolo_list[index_change_Gain])} dollars, the greatest increase in profits in this series.")
     print(f"In {prolo_year_list[index_change_loss]} the firm lost ${prolo_list[index_change_loss]} dollars, the greatest decrease in profits in this series.")
 
-    #write all found values
+    #write all found values to text file
     pybank_output_path = os.path.join('Analysis', 'PyBank_Solution.txt')
     pybank_output = open(pybank_output_path, 'w')
     pybank_output.write("FINANCIAL ANALYSIS" + '\n')

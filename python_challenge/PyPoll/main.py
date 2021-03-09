@@ -78,7 +78,14 @@ with open(csv_path) as csvfile:
     index_vote_count_list_max = vote_count_list.index(vote_count_list_max)
     winner = elec_unique_cand_list[index_vote_count_list_max]
 
+    print("ELECTION ANALYSIS")
+    
+    print("-------------------------------------------------------------------------------------------------")
+    
+    print(f"In this Mayoral election, there were {vote_count} votes cast.")
 
+    print("-------------------------------------------------------------------------------------------------")
+    
     print(f"Candidate {elec_unique_cand_list[0]} received {cand0_count} votes or {int((cand0_count/vote_count)*100)}% of votes.")
 
     print(f"Candidate {elec_unique_cand_list[1]} received {cand1_count} votes or {int((cand1_count/vote_count)*100)}% of votes.")
@@ -86,6 +93,34 @@ with open(csv_path) as csvfile:
     print(f"Candidate {elec_unique_cand_list[2]} received {cand2_count} votes or {int((cand2_count/vote_count)*100)}% of votes.")
 
     print(f"Candidate {elec_unique_cand_list[3]} received {cand3_count} votes or {int((cand3_count/vote_count)*100)}% of votes.")
+    
+    print("-------------------------------------------------------------------------------------------------")
+    
+    print(f"Candidate {winner} received {int((vote_count_list_max/vote_count)*100)}% of votes cast, therefore they won the election, they are the newly elected Mayor, congratulations to Mayor {winner}!")
 
-    print(f"The candidate {winner} won the election and is the newly elected Mayor, congratulations to Mayor {winner}!")
+    print("-------------------------------------------------------------------------------------------------")
+    
+    #write all found values to text file
+    pyPoll_output_path = os.path.join('Analysis', 'PyPoll_Solution.txt')
+    pyPoll_output = open(pyPoll_output_path, 'w')
+    pyPoll_output.write("ELECTION ANALYSIS" + '\n')
+    
+    pyPoll_output.write("-------------------------------------------------------------------------------------------------" + '\n')
+    
+    pyPoll_output.write(f"In this Mayoral election, there were {vote_count} votes cast" + '\n')
 
+    pyPoll_output.write("-------------------------------------------------------------------------------------------------" + '\n')
+    
+    pyPoll_output.write(f"Candidate {elec_unique_cand_list[0]} received {cand0_count} votes or {int((cand0_count/vote_count)*100)}% of votes." + '\n')
+
+    pyPoll_output.write(f"Candidate {elec_unique_cand_list[1]} received {cand1_count} votes or {int((cand1_count/vote_count)*100)}% of votes." + '\n')
+
+    pyPoll_output.write(f"Candidate {elec_unique_cand_list[2]} received {cand2_count} votes or {int((cand2_count/vote_count)*100)}% of votes." + '\n')
+
+    pyPoll_output.write(f"Candidate {elec_unique_cand_list[3]} received {cand3_count} votes or {int((cand3_count/vote_count)*100)}% of votes." + '\n')
+    
+    pyPoll_output.write("-------------------------------------------------------------------------------------------------" + '\n')
+    
+    pyPoll_output.write(f"Candidate {winner} received {int((vote_count_list_max/vote_count)*100)}% of votes cast, therefore they won the election, they are the newly \nelected Mayor, congratulations to Mayor {winner}!" + '\n')
+
+    pyPoll_output.write("-------------------------------------------------------------------------------------------------" + '\n')
