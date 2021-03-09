@@ -39,7 +39,7 @@ with open(csv_path) as csvfile:
         elec_county_list.append(County)
         elec_cand_list.append(Candidate)
 
-        # Count total # of votes making sure the person actually voted for someone
+        # Count total # of votes making sure the voter actually voted for someone
         if not Candidate:
             non_vote_count = non_vote_count + 1
         else: 
@@ -50,7 +50,7 @@ with open(csv_path) as csvfile:
         if Candidate not in elec_unique_cand_list:
             elec_unique_cand_list.append(Candidate)
 
-    # Sum up total profits/losses
+    # Sum up total votes for each candidate in unique candidate list
     for j in elec_cand_list:
 
         if elec_cand_list[counter] == elec_unique_cand_list[0]:
@@ -64,9 +64,11 @@ with open(csv_path) as csvfile:
         else: 
             print("oh no!")
         counter = counter + 1
+    # Convert lists to Tuples so they are immutable and ordered
     elec_vot_tup = tuple(elec_vot_list)
     elec_county_tup = tuple(elec_county_list)
     elec_cand_tup = tuple(elec_cand_list)
+    # Check to make sure there is no difference in total counts among candX_count and vote_count
     Vote_in_tup = cand0_count + cand1_count + cand2_count + cand3_count
     
     # Add candidate vote counts to a list to find max then index that max value and identify the winner 
@@ -78,6 +80,7 @@ with open(csv_path) as csvfile:
     index_vote_count_list_max = vote_count_list.index(vote_count_list_max)
     winner = elec_unique_cand_list[index_vote_count_list_max]
 
+    # Print values to terminal
     print("ELECTION ANALYSIS")
     
     print("-------------------------------------------------------------------------------------------------")
