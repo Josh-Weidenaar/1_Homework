@@ -59,5 +59,15 @@ with open(csv_path) as csvfile:
     print(f"Average monthly change in profit/loss: ${av_prolo}")
     print(f"In {prolo_year_list[index_change_Gain]} the firm made ${abs(prolo_list[index_change_Gain])} dollars, the greatest increase in profits in this series.")
     print(f"In {prolo_year_list[index_change_loss]} the firm lost ${prolo_list[index_change_loss]} dollars, the greatest decrease in profits in this series.")
-    
-    # next step is to write to csv for pybank and then develop pypoll analysis
+
+    #write all found values
+    pybank_output_path = os.path.join('Analysis', 'PyBank_Solution.txt')
+    pybank_output = open(pybank_output_path, 'w')
+    pybank_output.write("FINANCIAL ANALYSIS" + '\n')
+    pybank_output.write("-------------------------------------------------------------------------------------------------" + '\n')
+    pybank_output.write(f"Months in dataset: {counter}" + '\n')
+    pybank_output.write(f"Total profit/loss: ${tot}" + '\n')
+    pybank_output.write(f"Average monthly change in profit/loss: ${av_prolo}" + '\n')
+    pybank_output.write(f"In {prolo_year_list[index_change_Gain]} the firm made ${abs(prolo_list[index_change_Gain])} dollars, the greatest increase in profits in this series." + '\n')
+    pybank_output.write(f"In {prolo_year_list[index_change_loss]} the firm lost ${prolo_list[index_change_loss]} dollars, the greatest decrease in profits in this series.")
+    pybank_output.close()
